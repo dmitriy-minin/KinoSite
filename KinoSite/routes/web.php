@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('mainPage.mainPage');
 });
+
+Route::get('/genres', 'GenresController@index');
+
+Route::get('/genre', 'GenresController@genres')->name('genres_table');
+
+
+Route::get('/films', 'FilmsController@index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
