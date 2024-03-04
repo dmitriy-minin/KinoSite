@@ -1,0 +1,19 @@
+.buttons {
+    display: flex;
+    justify-content: left;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 0.5rem;
+}
+
+.pagination {
+    justify-content: center;
+}

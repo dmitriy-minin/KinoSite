@@ -15,14 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('mainPage.mainPage');
-});
+})->name('main_page');
 
-Route::get('/genres', 'GenresController@index');
+//Route::get('/main', '');
 
-Route::get('/genre', 'GenresController@genres')->name('genres_table');
+Route::get('/genres', 'GenresController@index')->name('genres_table');
 
 
-Route::get('/films', 'FilmsController@index');
+Route::get('/films', 'FilmsController@index')->name('films_table');
+Route::get('/filmscards', 'FilmsController@cards')->name('films_cards');
+Route::get('/filmcreate', 'FilmsController@create')->name('films_create');
+Route::post('/filmcreate', 'FilmsController@store')->name('film_store');
+
+
 
 Auth::routes();
 

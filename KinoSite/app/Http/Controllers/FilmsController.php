@@ -8,11 +8,17 @@ use App\Models\Film;
 class FilmsController extends Controller
 {
     public function index(){
-        return 'films page';
+        $films = Film::paginate(20);
+        return view('films.filmsCards', compact('films'));
+    }
+
+    public function cards(){
+        $films = Film::paginate(20);
+        return view('films.films', compact('films'));
     }
 
     public function create(){
-        return view('film.create');
+        return view('films.filmsCreate');
     }
 
     public function store(){
@@ -21,7 +27,7 @@ class FilmsController extends Controller
             'poster_link'=>'string'
         ]);
         Film::create($data);
-        return redirect()->route('films.index');
+        return redirect()->route('films_table');
     }
 
     public function show($id){
