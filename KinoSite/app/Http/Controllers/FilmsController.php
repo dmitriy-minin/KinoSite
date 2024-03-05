@@ -44,7 +44,7 @@ class FilmsController extends Controller
     }
 
     public function delete(){
-        $films = Film::find(6);
+        $films = Film::find(10);
         $films->delete();
     }
 

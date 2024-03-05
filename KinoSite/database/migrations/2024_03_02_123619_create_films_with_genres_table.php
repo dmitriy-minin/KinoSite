@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('films_with_genres', function (Blueprint $table) {
-            /*
-            $table->unsignedInteger('genre_id');
-            $table->unsignedInteger('film_id');
             
-            $table->index('genre_id', 'genre_film_idx');
-            $table->index('film_id', 'film_genre_idx');
+            // $table->unsignedInteger('genre_id');
+            // $table->unsignedInteger('film_id');
+            
+            // $table->index('genre_id', 'genre_film_idx');
+            // $table->index('film_id', 'film_genre_idx');
 
-            $table->foreign('genre_id')->on('genres')->references('id');
-            $table->foreign('film_id')->on('films')->references('id');
-            */
+            // $table->foreign('genre_id')->on('genres')->references('id');
+            // $table->foreign('film_id')->on('films')->references('id');
+            
             
             $table->foreignId('genre_id')->constrained('genres');
             $table->foreignId('film_id')->constrained('films');

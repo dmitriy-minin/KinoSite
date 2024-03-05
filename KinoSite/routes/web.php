@@ -23,9 +23,10 @@ Route::get('/genres', 'GenresController@index')->name('genres_table');
 
 
 Route::get('/films', 'FilmsController@index')->name('films_table');
-Route::get('/filmscards', 'FilmsController@cards')->name('films_cards');
-Route::get('/filmcreate', 'FilmsController@create')->name('films_create');
-Route::post('/filmcreate', 'FilmsController@store')->name('film_store');
+Route::get('/films/cards', 'FilmsController@cards')->name('films_cards');
+Route::get('/films/create', 'FilmsController@create')->name('films_create');
+Route::post('/films/create', 'FilmsController@store')->name('film_store');
+Route::get('/films/delete', 'FilmsController@delete');
 
 
 
