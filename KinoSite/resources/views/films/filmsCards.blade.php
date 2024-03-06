@@ -22,7 +22,7 @@
       </a>
         <p class="card-text">{{$film->created_at}}</p>
         <p class="card-text">{{$film->updated_at}}</p>
-        <a href="#" class="btn btn-primary">Редактировать</a>
+        <a href="{{route('film_edit', $film->id)}}" class="btn btn-primary">Редактировать</a>
         </div>
     </div>
 @endforeach

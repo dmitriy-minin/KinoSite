@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Film;
+use App\Models\Genre;
 
 class FilmsController extends Controller
 {
     public function index(){
-        $films = Film::paginate(20);
+        $films = Film::orderBy('id', 'desc')->paginate(20);
         return view('films.filmsCards', compact('films'));
+
+        // $film = Film::find(3);
+        // dd($film->genres);
+
+        // $genre = Genre::find(3);
+        // dd($genre->films);
     }
     
     public function cards(){
@@ -18,15 +25,22 @@ class FilmsController extends Controller
     }
 
     public function create(){
-        return view('films.filmsCreate');
+        $genres = Genre::all();
+        return view('films.filmsCreate', compact('genres'));
     }
 
     public function store(){
         $data = request()->validate([
             'film_name' => 'string',
-            'poster_link'=>'string|url'
+            'poster_link'=>'string',
+            'genres'=>''
         ]);
-        Film::create($data);
+        $genres = $data['genres'];
+        unset($data['genres']);
+        
+        $film = Film::create($data);
+        $film->genres()->attach($genres);
+
         return redirect()->route('films_table');
     }
 
