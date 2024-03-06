@@ -15,7 +15,8 @@
   </div>
   <select class="form-select" multiple aria-label="multiple select example" name="genres[]">
     @foreach($genres as $genre)
-    <option value="{{$genre->id}}">{{$genre->genre}}</option>
+    <option 
+    value="{{$genre->id}}">{{$genre->genre}}</option>
     @endforeach
 </select>
 <br><button type="submit" class="btn btn-primary">Добавить</button>

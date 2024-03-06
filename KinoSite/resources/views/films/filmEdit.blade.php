@@ -14,6 +14,15 @@
     <label for="exampleInputPassword1">Ссылка на постер</label>
     <input type="text" class="form-control" placeholder="Постер" name="poster_link" value="{{$film->poster_link}}">
   </div>
-  <button type="submit" class="btn btn-primary">Обновить</button>
+  <select class="form-select" multiple aria-label="multiple select example" name="genres[]">
+    @foreach($genres as $genre)
+    <option
+    @foreach($film->genres as $fimlGenre) 
+    {{$genre->id === $fimlGenre->id ? 'selected' : ''}}
+    @endforeach
+    value="{{$genre->id}}">{{$genre->genre}}</option>
+    @endforeach
+</select>
+  <br><button type="submit" class="btn btn-primary">Обновить</button>
 </form>
 @endsection

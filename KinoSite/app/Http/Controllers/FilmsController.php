@@ -51,16 +51,23 @@ class FilmsController extends Controller
 
     public function edit($id){
         $film =Film::find($id);
-        return view('films.filmEdit', compact('film'));
+        $genres =Genre::all();
+        return view('films.filmEdit', compact('film', 'genres'));
     }
 
     public function update($id){
         $films = Film::find($id);
         $data = request()->validate([
             'film_name' => 'string',
-            'poster_link'=>'string'
+            'poster_link'=>'string',
+            'genres'=>''
         ]);
+        $genres = $data['genres'];
+        unset($data['genres']);
+
         $films->update($data);
+        $films->genres()->attach($genres);
+
         return redirect()->route('film_show', $id);
     }
 
