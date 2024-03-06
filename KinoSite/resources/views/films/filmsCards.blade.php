@@ -14,10 +14,12 @@
 </div>
 <div class="cards">
 @foreach($films as $film)
+<a href="{{route('film_show', $film->id)}}">
     <div class="card" style="width: 12rem;">
     <img class="card-img-top" src="{{$film->poster_link}}" alt="постер фильма">
         <div class="card-body">
         <h5 class="card-title">{{$film->film_name}}</h5>
+      </a>
         <p class="card-text">{{$film->created_at}}</p>
         <p class="card-text">{{$film->updated_at}}</p>
         <a href="#" class="btn btn-primary">Редактировать</a>
