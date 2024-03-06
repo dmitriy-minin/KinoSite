@@ -66,7 +66,7 @@ class FilmsController extends Controller
         unset($data['genres']);
 
         $films->update($data);
-        $films->genres()->attach($genres);
+        $films->genres()->sync($genres);
 
         return redirect()->route('film_show', $id);
     }
