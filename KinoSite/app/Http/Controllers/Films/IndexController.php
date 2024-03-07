@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Film;
 
+
 class IndexController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $films = Film::orderBy('id', 'desc')->paginate(20);
+        $films = Film::where('public_status', 1)->orderBy('id', 'desc')->paginate(20);
         return view('films.filmsCards', compact('films'));
     }
 }

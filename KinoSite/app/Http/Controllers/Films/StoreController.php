@@ -5,26 +5,19 @@ namespace App\Http\Controllers\Films;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Film;
+use App\Http\Requests\Film\StoreRequest;
 
 class StoreController extends Controller
 {
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request)
+    public function __invoke(StoreRequest $request)
     {
-        $data = request()->validate([
-            'film_name' => 'string',
-            'poster_link'=>'string',
-            'genres'=>'required'
-        ]);
+        $data = $request->validated();
         
         $genres = $data['genres'];
         unset($data['genres']);
-        //dd($data, $genres);
-        // if ($data["genres"] == null) {
-        //     $data["genres"] = 0;
-        // }
 
         $film = Film::create($data);
         $film->genres()->attach($genres);
