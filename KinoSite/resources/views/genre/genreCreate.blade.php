@@ -17,6 +17,6 @@
 </form>
 
 <form action="{{route('genres_table')}}">
-    <br><button type="submit" class="btn btn-primary">Отмена</button>
+    <br><button type="submit" class="btn btn-secondary">Отмена</button>
     </form>
 @endsection

@@ -25,4 +25,7 @@
 </select>
   <br><button type="submit" class="btn btn-primary">Обновить</button>
 </form>
+<form action="{{route('films_table')}}">
+  <br><button type="submit" class="btn btn-secondary">Отмена</button>
+</form>
 @endsection

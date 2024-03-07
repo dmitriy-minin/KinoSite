@@ -30,6 +30,8 @@
   <p class="text-danger">{{$message}}</p>
   @enderror
 <br><button type="submit" class="btn btn-primary">Добавить</button>
-
+</form>
+<form action="{{route('films_table')}}">
+  <br><button type="submit" class="btn btn-secondary">Отмена</button>
 </form>
 @endsection
