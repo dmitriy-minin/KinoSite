@@ -7,9 +7,9 @@ use App\Models\Genre;
 
 class GenresController extends Controller
 {
-    public function index(){
-        $genres = Genre::all();
-        return view('genre.genres', compact('genres'));
-    }
+    // public function index(){
+    //     $genres = Genre::all();
+    //     return view('genre.genres', compact('genres'));
+    // }
 
 }

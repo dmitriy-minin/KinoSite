@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('genre');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

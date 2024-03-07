@@ -21,7 +21,6 @@
         <h5 class="card-title">{{$film->film_name}}</h5>
       </a>
         <p class="card-text">{{$film->created_at}}</p>
-        <p class="card-text">{{$film->updated_at}}</p>
         <a href="{{route('film_edit', $film->id)}}" class="btn btn-primary">Редактировать</a>
         </div>
     </div>
