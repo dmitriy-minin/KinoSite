@@ -4,23 +4,45 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+  th{
+    text-align: center;
+    vertical-align: middle;
+  }
+  td{
+    text-align: center;
+    vertical-align: middle;
+  }
+</style>
+
 <div>
+<div class="buttons">
+<form action="{{route('genres_create')}}">
+    <button type="submit" class="btn btn-primary">Добавить</button></form>
+</div>
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Жанр</th>
       <th scope="col">Создано</th>
-      <th scope="col">Обновлено</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     @foreach($genres as $genre)
     <tr>
-      <th scope="row">{{$genre->id}}</th>
-      <td>{{$genre->genre}}</td>
+      <td scope="row">{{$genre->genre}}</td>
       <td>{{$genre->created_at}}</td>
-      <td>{{$genre->updated_at}}</td>
+      <td>
+      <form action="{{route('genre_edit', $genre->id)}}">
+      <button type="submit" class="btn btn-primary">Редактировать</button></form>
+      </td>
+      <td><form action="{{route('genres_delete', $genre->id)}}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-danger">Удалить</button>
+      </form></td>
     </tr>
     @endforeach
   </tbody>
