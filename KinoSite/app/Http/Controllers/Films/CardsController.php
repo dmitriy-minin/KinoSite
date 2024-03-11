@@ -13,7 +13,7 @@ class CardsController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $films = Film::where('public_status', 1)->paginate(20);
+        $films = Film::orderBy('id', 'desc')->where('public_status', 1)->paginate(20);
         return view('films.films', compact('films'));
     }
 }

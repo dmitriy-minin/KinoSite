@@ -5,7 +5,7 @@ namespace App\Http\Requests\Film;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
+class PublishRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'film_name' => 'required|string',
-            'poster_link'=>'',
-            'genres'=>'required',
+            'public_status'=>''
         ];
     }
 }

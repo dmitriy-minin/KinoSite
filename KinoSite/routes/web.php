@@ -27,6 +27,8 @@ Route::group(['namespace'=> 'Films'], function(){       // т.к. одномет
     Route::get('/films/{film}/edit', 'EditController')->name('film_edit');
     Route::patch('/films/{film}', 'UpdateController')->name('film_update');
     Route::delete('/films/{film}', 'DeleteController')->name('film_delete');
+    Route::get('/films/{film}/public', 'PublicController')->name('film_public');
+    Route::patch('/films/{film}/public', 'PublishController')->name('film_publish');
 });
 
 Route::group(['namespace'=>'Genres'], function(){

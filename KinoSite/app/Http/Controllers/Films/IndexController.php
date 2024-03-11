@@ -18,7 +18,7 @@ class IndexController extends Controller
         $data = $request->validated();
         
         $filter = app()->make(FilmFilter::class, ['queryParams'=>array_filter($data)]);
-        $films = Film::filter($filter)->paginate(20);
+        $films = Film::filter($filter)->orderBy('id', 'desc')->paginate(20);
 
         // dd($films);
 

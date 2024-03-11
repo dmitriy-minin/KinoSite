@@ -25,6 +25,8 @@
 </select>
   <br><button type="submit" class="btn btn-primary">Обновить</button>
 </form>
+<br><form  action="{{route('film_public', $film->id)}}"><button type="submit" class="btn btn-primary">Опубликовать</button>
+</form>
 <form action="{{route('films_table')}}">
   <br><button type="submit" class="btn btn-secondary">Отмена</button>
 </form>

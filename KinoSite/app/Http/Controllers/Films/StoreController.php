@@ -19,6 +19,10 @@ class StoreController extends Controller
         $genres = $data['genres'];
         unset($data['genres']);
 
+        if ($data['poster_link']==null) {
+            $data['poster_link']="https://w.forfun.com/fetch/71/71686f02a5f437e3fd963e06f8ccd414.jpeg";
+        }
+
         $film = Film::create($data);
         $film->genres()->attach($genres);
 
