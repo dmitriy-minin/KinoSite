@@ -19,7 +19,8 @@ class ShowController extends Controller
         $filmsgenres = Genres_films::all()->where('film_id','=', $id);
         $genres = Genre::all();
 
-        //dd($film, $genres);
+
+        //dd($genres, $filmsgenres);
         return view('films.show', compact('film', 'filmsgenres', 'genres'));
     }
 }

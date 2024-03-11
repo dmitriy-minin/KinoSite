@@ -15,13 +15,20 @@
             <button type="submit" class="btn btn-danger" value="Удалить">Удалить</button>
         </form>
     </form>
-    <h2>{{$film->film_name}}</h2>
+    <h2>Название фильма:  {{$film->film_name}}</h2>
+    <div>
+        <p>Жанры: </p>
     @foreach($genres as $genre)
-        <h3>{{$genre->genre}}
-            
-        </h3>
+        @foreach($filmsgenres as $item)
+            @if($genre->id == $item->genre_id)
+            <div class="badge bg-primary text-wrap" style="width: 6rem; font-size: 1rem; color: white">
+            {{$genre->genre}}
+            </div>
+            @endif
+        @endforeach
     @endforeach
-    <img class="poster" src="{{$film->poster_link}}" alt="poster">
+    </div>
+    <br><img class="poster" src="{{$film->poster_link}}" alt="poster">
     <form action="{{route('films_table')}}">
     <br><button type="submit" class="btn btn-primary">Назад</button>
     </form>

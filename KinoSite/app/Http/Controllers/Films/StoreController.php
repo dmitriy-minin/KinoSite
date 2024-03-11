@@ -33,7 +33,7 @@ class StoreController extends Controller
             'genres'=>$genres,
         ];
 
-        return $arr;
+        //return $arr;
         return redirect()->route('films_table');
     }
 }
