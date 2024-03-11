@@ -17,7 +17,9 @@
     </form>
     <h2>{{$film->film_name}}</h2>
     @foreach($genres as $genre)
-        <h3>{{$genre}}</h3>
+        <h3>{{$genre->genre}}
+            
+        </h3>
     @endforeach
     <img class="poster" src="{{$film->poster_link}}" alt="poster">
     <form action="{{route('films_table')}}">

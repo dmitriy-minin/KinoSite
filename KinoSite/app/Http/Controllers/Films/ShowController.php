@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Genres_films;
+use App\Models\Genre;
 
 class ShowController extends Controller
 {
@@ -15,9 +16,10 @@ class ShowController extends Controller
     public function __invoke($id)
     {
         $film = Film::findOrFail($id);
-        $genres = Genres_films::all()->where('film_id','=', $id);
-        
+        $filmsgenres = Genres_films::all()->where('film_id','=', $id);
+        $genres = Genre::all();
+
         //dd($film, $genres);
-        return view('films.show', compact('film', 'genres'));
+        return view('films.show', compact('film', 'filmsgenres', 'genres'));
     }
 }
