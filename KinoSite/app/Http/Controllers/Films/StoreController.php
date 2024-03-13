@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Films;
 
+use App\Http\Controllers\Films\BaseController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Film;
@@ -27,13 +28,6 @@ class StoreController extends Controller
         $film = Film::create($data);
         $film->genres()->attach($genres);
 
-        $arr=[
-            'film_name' => $film->film_name,
-            'poster_link'=> $film->poster_link,
-            'genres'=>$genres,
-        ];
-
-        //return $arr;
         return redirect()->route('films_table');
     }
 }

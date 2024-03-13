@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Controllers\Films\IndexController;
+use App\Http\Controllers\Admin\Film;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +14,14 @@ use App\Controllers\Films\IndexController;
 |
 */
 
-Route::get('/', function () {
-    return view('mainPage.mainPage');
-})->name('main_page');
+Route::group(['namespace'=> 'Admin\Film', 'prefix'=>'admin'], function(){
+    Route::group([], function(){
+        Route::get('/films', 'IndexController')->name('admin_film_index');
+    });
+});
 
 Route::group(['namespace'=> 'Films'], function(){       // т.к. однометодные контроллеры в папке Films нужно добывить пространство имен
+    Route::get('/', 'MainController')->name('main_page');
     Route::get('/films', 'IndexController')->name('films_table');
     Route::get('/films/cards', 'CardsController')->name('films_cards');
     Route::get('/films/create', 'CreateController')->name('films_create');
