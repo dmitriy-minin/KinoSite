@@ -6,7 +6,7 @@
 <div class="buttons">
 <a href="{{route('films_create')}}">
 <button type="button" class="btn btn-primary">Добавить</button></a>
-  <a href="{{route('films_table')}}">
+  <a href="{{route('admin_film_cards')}}">
 <button type="button" class="btn btn-outline-dark">Сетка</button></a>
 </div>
 <div>

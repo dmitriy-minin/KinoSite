@@ -16,7 +16,8 @@ use App\Http\Controllers\Admin\Film;
 
 Route::group(['namespace'=> 'Admin\Film', 'prefix'=>'admin'], function(){
     Route::group([], function(){
-        Route::get('/films', 'IndexController')->name('admin_film_index');
+        Route::get('/filmstable', 'IndexController')->name('admin_film_index');
+        Route::get('/filmscards', 'CardsController')->name('admin_film_cards');
     });
 });
 
