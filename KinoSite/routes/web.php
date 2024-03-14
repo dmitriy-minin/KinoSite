@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\Film;
 |
 */
 
+Route::get('/home', 'HomeController@index');
+
 Route::group(['namespace'=> 'Admin\Film', 'prefix'=>'admin'], function(){
     Route::group([], function(){
         Route::get('/filmstable', 'IndexController')->name('admin_film_index');
@@ -64,6 +66,10 @@ Route::group(['namespace'=>'Genres'], function(){
 //Route::get('/films/delete', 'FilmsController@delete');
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
