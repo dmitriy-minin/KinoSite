@@ -9,6 +9,6 @@ use App\Http\Controllers\Films\MainController;
 class MainController extends Controller
 {
     public function __invoke(Request $request){
-        return view('layouts.admin');
+        return view('mainPage.mainPage');
     }
 }

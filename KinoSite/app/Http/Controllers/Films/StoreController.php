@@ -27,7 +27,7 @@ class StoreController extends Controller
 
         $film = Film::create($data);
         $film->genres()->attach($genres);
-
+        
         return redirect()->route('films_table');
     }
 }

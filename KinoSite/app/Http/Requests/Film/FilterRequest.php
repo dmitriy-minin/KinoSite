@@ -26,6 +26,8 @@ class FilterRequest extends FormRequest
             'film_name' => 'string',
             'poster_link'=>'string',
             'genres'=>'',
+            'page'=>'',
+            'per_page'=>''
         ];
     }
 }

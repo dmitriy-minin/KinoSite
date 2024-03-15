@@ -16,12 +16,12 @@ use App\Http\Controllers\Admin\Film;
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['namespace'=> 'Admin\Film', 'prefix'=>'admin'], function(){
-    Route::group([], function(){
-        Route::get('/filmstable', 'IndexController')->name('admin_film_index');
-        Route::get('/filmscards', 'CardsController')->name('admin_film_cards');
-    });
-});
+// Route::group(['namespace'=> 'Admin\Film', 'prefix'=>'admin'], function(){
+//     Route::group([], function(){
+//         Route::get('/filmstable', 'IndexController')->name('admin_film_index');
+//         Route::get('/filmscards', 'CardsController')->name('admin_film_cards');
+//     });
+// });
 
 Route::group(['namespace'=> 'Films'], function(){       // т.к. однометодные контроллеры в папке Films нужно добывить пространство имен
     Route::get('/', 'MainController')->name('main_page');
