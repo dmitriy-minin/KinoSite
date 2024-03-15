@@ -16,35 +16,28 @@
 </style>
 
 <div>
-<div class="buttons">
-<form action="{{route('genres_create')}}">
-    <button type="submit" class="btn btn-primary">Добавить</button></form>
-</div>
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Жанр</th>
-      <th scope="col">Создано</th>
+      <th scope="col">Фильм</th>
+      <th scope="col"></th>
       <th scope="col"></th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-    @foreach($genres as $genre)
+    @foreach($genresFilms as $genres)
     <tr>
       <td scope="row">
-      <a href="{{route('genre_films', $genre->id)}}">{{$genre->genre}}</a>  
+        @foreach($films as $film)
+            @if($film->id === $genres->film_id)
+                {{$film->film_name}}
+            @endif
+        @endforeach
       </td>
-      <td>{{$genre->created_at}}</td>
-      <td>
-      <form action="{{route('genre_edit', $genre->id)}}">
-      <button type="submit" class="btn btn-primary">Редактировать</button></form>
-      </td>
-      <td><form action="{{route('genres_delete', $genre->id)}}" method="post">
-        @csrf
-        @method('delete')
-        <button type="submit" class="btn btn-danger">Удалить</button>
-      </form></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     @endforeach
   </tbody>

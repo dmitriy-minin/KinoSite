@@ -43,7 +43,8 @@ Route::group(['namespace'=>'Genres'], function(){
     Route::get('/genres/create', 'CreateController')->name('genres_create');
     Route::post('/genres/create', 'StoreController')->name('genre_store');
     Route::get('/genres/{genre}/edit', 'EditController')->name('genre_edit');
-    Route::patch('/genres/{film}/edit', 'UpdateController')->name('genre_update');    
+    Route::patch('/genres/{genre}/edit', 'UpdateController')->name('genre_update');
+    Route::get('/genres/{genre}/films', 'ShowController')->name('genre_films');    
 });
 
 //Route::get('/main', '');
