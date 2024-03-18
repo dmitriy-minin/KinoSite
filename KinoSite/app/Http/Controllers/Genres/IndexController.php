@@ -15,7 +15,9 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $genres = Genre::all();
-        //return GenreResource::collection($genres);
-        return view('genre.genres', compact('genres'));
+
+        return GenreResource::collection($genres);
+        
+        //return view('genre.genres', compact('genres'));
     }
 }

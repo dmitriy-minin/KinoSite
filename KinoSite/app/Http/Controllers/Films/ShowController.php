@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Genres_films;
 use App\Models\Genre;
+use App\Http\Resources\Film\ShowResourse;
 
 class ShowController extends Controller
 {
@@ -19,8 +20,8 @@ class ShowController extends Controller
         $filmsgenres = Genres_films::all()->where('film_id','=', $id);
         $genres = Genre::all();
 
+        return new ShowResourse($film);
 
-        //dd($genres, $filmsgenres);
-        return view('films.show', compact('film', 'filmsgenres', 'genres'));
+        //return view('films.show', compact('film', 'filmsgenres', 'genres'));
     }
 }

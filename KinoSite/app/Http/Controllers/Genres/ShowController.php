@@ -7,16 +7,19 @@ use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Genre;
 use App\Models\Genres_films;
+use App\Http\Resources\Genre\ShowResource;
 
 class ShowController extends Controller
 {
     public function __invoke($id){
         $genre = Genre::find($id);
-        $films = Film::all();
-        $genresFilms = Genres_films::where('genre_id', '=', $id)->get();
+        $genresFilms = Genres_films::where('genre_id', '=', $id)
+        ->join('films', 'film_id', '=', 'films.id')
+        ->get();
 
-        //dd($genre, $films, $genresFilms);
-        return view('genre.showFilms', compact('genre', 'films', 'genresFilms'));
+        return ShowResource::collection($genresFilms);
+
+        //return view('genre.showFilms', compact('genre', 'genresFilms'));
     }
     
 }

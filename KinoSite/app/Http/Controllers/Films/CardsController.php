@@ -15,7 +15,9 @@ class CardsController extends Controller
     public function __invoke(Request $request)
     {
         $films = Film::orderBy('id', 'desc')->where('public_status', 1)->paginate(20);
+
         return FilmResource::collection($films);
+        
         //return view('films.films', compact('films'));
     }
 }

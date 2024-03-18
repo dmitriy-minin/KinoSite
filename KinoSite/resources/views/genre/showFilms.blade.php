@@ -26,20 +26,16 @@
     </tr>
   </thead>
   <tbody>
-    @foreach($genresFilms as $genres)
+    @foreach($genresFilms as $genreFilm)
     <tr>
       <td scope="row">
-        @foreach($films as $film)
-            @if($film->id === $genres->film_id)
-                {{$film->film_name}}
-            @endif
-        @endforeach
-      </td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    @endforeach
+            {{$genreFilm->film_name}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      @endforeach
   </tbody>
 </table>
 </div>

@@ -24,8 +24,8 @@ class IndexController extends Controller
         $filter = app()->make(FilmFilter::class, ['queryParams'=>array_filter($data)]);
         $films = Film::filter($filter)->orderBy('id', 'desc')->paginate($perPage, ['*'], 'page', $page);
 
-        // dd($films);
         return FilmResource::collection($films);
+        
         // $films = Film::where('public_status', 1)->orderBy('id', 'desc')->paginate(20);
         //return view('films.filmsCards', compact('films'));
     }

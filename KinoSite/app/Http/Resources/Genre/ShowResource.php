@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Film;
+namespace App\Http\Resources\Genre;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FilmResource extends JsonResource
+class ShowResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +15,7 @@ class FilmResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'=> $this->id,
-            'film_name' => $this->film_name,
-            'poster_link'=> $this->poster_link,
-            'public_status'=>$this->public_status,
-            'genres'=> $this->genres,
+            'film_name'=>$this->film_name
         ];
     }
 }
