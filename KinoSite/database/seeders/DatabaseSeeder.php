@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         Genre::factory(10)->create();
         Film::factory(120)->create();
-        Genres_films::factory(120)->create();
+        Genres_films::factory(250)->create();
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

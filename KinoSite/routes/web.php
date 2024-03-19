@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index');
 //     });
 // });
 
-Route::group(['namespace'=> 'Films'], function(){       // т.к. однометодные контроллеры в папке Films нужно добывить пространство имен
+Route::group(['namespace'=> 'Films'], function(){      
     Route::get('/', 'MainController')->name('main_page');
     Route::get('/films', 'IndexController')->name('films_table');
     Route::get('/films/cards', 'CardsController')->name('films_cards');
