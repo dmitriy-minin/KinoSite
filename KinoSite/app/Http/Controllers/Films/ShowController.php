@@ -16,11 +16,22 @@ class ShowController extends Controller
      */
     public function __invoke($id)
     {
-        $film = Film::findOrFail($id);
-        $filmsgenres = Genres_films::all()->where('film_id','=', $id);
-        $genres = Genre::all();
+        $filmsgenres = Genres_films::where('film_id','=', $id)
+        ->join('genres', 'genre_id', '=', 'genres.id')
+        ->join('films', 'film_id', '=', 'films.id')
+        ->get();
 
-        return new ShowResourse($film);
+        return ShowResourse::collection($filmsgenres);
+
+        //json_decode($filmsgenres);
+        //return view('films.show', compact('filmsgenres'));
+
+        //первый вариант
+        // $film = Film::findOrFail($id);
+        // $filmsgenres = Genres_films::all()->where('film_id','=', $id);
+        // $genres = Genre::all();
+
+        // return new ShowResourse($film);
 
         //return view('films.show', compact('film', 'filmsgenres', 'genres'));
     }

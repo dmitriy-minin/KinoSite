@@ -19,7 +19,7 @@ class ShowResourse extends JsonResource
             'film_name' => $this->film_name,
             'poster_link'=> $this->poster_link,
             'public_status'=>$this->public_status,
-            'genres'=> $this->genres,
+            'genre'=> $this->genre,
         ];
     }
 }

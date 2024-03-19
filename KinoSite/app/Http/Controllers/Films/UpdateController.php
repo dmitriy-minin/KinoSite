@@ -20,7 +20,7 @@ class UpdateController extends Controller
         unset($data['genres']);
 
         $films->update($data);
-        $films->genres()->sync($genres);     //метод который не добовляет новые атрибуты а заменяет их при обновлении
+        $films->genres()->sync($genres);     
 
         return redirect()->route('film_show', $id);
     }
