@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Http\Requests\Film\UpdateRequest;
+use App\Services\Film\Service;
 
 class UpdateController extends Controller
 {
@@ -16,11 +17,13 @@ class UpdateController extends Controller
     {
         $films = Film::find($id);
         $data = $request->validated();
-        $genres = $data['genres'];
-        unset($data['genres']);
 
-        $films->update($data);
-        $films->genres()->sync($genres);     
+        (new Service())->update($data, $films);        
+        // $genres = $data['genres'];
+        // unset($data['genres']);
+
+        // $films->update($data);
+        // $films->genres()->sync($genres);     
 
         return redirect()->route('film_show', $id);
     }
